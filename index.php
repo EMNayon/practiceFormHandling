@@ -88,9 +88,7 @@
             }
         }
     ?>
-    <!-- <input type="checkbox" name="education[]" value="B.Tech"> B.Tech
-    <input type="checkbox" name="education[]" value="M.Tech">  M.Tech
-    <input type="checkbox" name="education[]" value="B.Sc"> B.Sc<br><br> -->
+    
     <br><br>
 
     <input type="submit" name="submit" >
