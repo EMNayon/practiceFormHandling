@@ -4,7 +4,7 @@ session_start();
 
 if(isset($_SESSION['name'])){
     echo "Welcome ".$_SESSION['name']."<br>";
-    echo "Your details are here - <br>";
+    echo "<p style='color:blue'>Your details are here - </p>";
     echo "Name :- ".$_SESSION['name']."<br>";
     echo "Password :- ".$_SESSION['password']."<br>";
     echo "City :- ".$_SESSION['city']."<br>";
