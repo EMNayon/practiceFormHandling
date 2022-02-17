@@ -1,7 +1,7 @@
 <?php
     // echo "<pre>";
     // print_r($_POST);
-    
+    session_start();
 
     // initilization all variable value in empty
     $name = '';
@@ -15,33 +15,47 @@
     if(isset($_POST['submit'])){
         // print_r($_POST['name']);
         $name = $_POST['name'];
-        $password = $_POST['password'];
-        $city = $_POST['city'];
-
-        // gender section
-        if(isset($_POST['gender'])){
-            $gender = $_POST['gender'];
-            if($gender == 'Male'){
-                $maleChecked = "checked";
-            }
-            if($gender == 'Female'){
-                $femaleChecked = "checked";
-            }
-        }
-        // education section
-        if(isset($_POST['education'])){
-            $education = $_POST['education'];
-            $educationStr = implode(' ,',$education);
-        }
+        if($name){
+            $_SESSION['name'] = $name;
+            // header('location:index1.php');
+            // die();
         
-        // print the all values 
-        echo "Name :- $name<br>";
-        echo "Password :- $password<br>";
-        echo "City :- $city<br>";
-        echo "Gender :- $gender<br>";
-        echo "Education :- $educationStr<br>";
+            $password = $_POST['password'];
+            $_SESSION['password'] = $password;
+            $city = $_POST['city'];
+            $_SESSION['city'] = $city;
 
-        echo "<br>";
+            // gender section
+            if(isset($_POST['gender'])){
+                $gender = $_POST['gender'];
+                $_SESSION['gender'] = $gender;
+                if($gender == 'Male'){
+                    $maleChecked = "checked";
+                }
+                if($gender == 'Female'){
+                    $femaleChecked = "checked";
+                }
+            }
+            // education section
+            if(isset($_POST['education'])){
+                $education = $_POST['education'];
+                // $_SESSION['education'] = $education;
+                $educationStr = implode(' ,',$education);
+                $_SESSION['education'] = $educationStr;
+            }
+
+            header('location:index1.php');
+            die();
+            
+            // print the all values 
+            // echo "Name :- $name<br>";
+            // echo "Password :- $password<br>";
+            // echo "City :- $city<br>";
+            // echo "Gender :- $gender<br>";
+            // echo "Education :- $educationStr<br>";
+
+            echo "<br>";
+        }
 
     }
     // print_r($_POST['name']);
